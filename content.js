@@ -15,11 +15,11 @@ function askQuestions() {
     "Would you rather spend this money on something more meaningful?"
   ];
 
-  for (const question of questions) {
-    if (!confirm(question)) {
-      alert("Take a moment to reconsider!");
-    }
-  }
+//   for (const question of questions) {
+//     if (!confirm(question)) {
+//       alert("Take a moment to reconsider!");
+//     }
+//   }
 
   alert("Alright, proceed—but spend wisely!");
 }

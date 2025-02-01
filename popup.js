@@ -1,15 +1,13 @@
-// List of shopping websites to track
-const shoppingSites = ["amazon", "ebay", "walmart", "flipkart", "aliexpress", "bestbuy"];
 
 document.addEventListener("DOMContentLoaded", function () {
     const statsElement = document.getElementById("stats");
     const timeElement = document.getElementById("time");
     const resetButton = document.getElementById("reset");
 
-    // Load stored values
+    // Load stored values and update UI
     chrome.storage.local.get(["visitedCount", "totalTime"], function (data) {
-        statsElement.textContent = data.visitedCount;
-        timeElement.textContent = (data.totalTime) + " min";
+        statsElement.textContent = data.visitedCount || 0;
+        timeElement.textContent = (data.totalTime || 0) + " min";
     });
 
     // Reset button functionality
