@@ -1,0 +1,23 @@
+{
+    "manifest_version": 3,
+    "name": "The Shopping Cart of Doom",
+    "version": "1.0",
+    "description": "Prevents impulsive shopping by messing up your gui and including multiple popups.",
+    "permissions": ["scripting", "storage"],
+    "host_permissions": ["*://*/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://*/*"],
+        "js": ["content.js"],
+        "run_at": "document_start"
+      }
+    ]
+  }
+  
