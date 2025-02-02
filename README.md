@@ -11,5 +11,5 @@ The extension monitors website URLs and detects if the user is visiting shopping
 
 # Instructions
 
-The code for the LLM hosted on cloudflare is within the Folder named AI-Worker
+The code for the LLM hosted on cloudflare is within the Folder named shoppingcartofdoom
 The rest of the code can be cloned via git, and then when on chrome://extensions enter developer mode, and unpack the load into it
