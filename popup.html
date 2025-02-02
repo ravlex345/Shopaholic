@@ -2,20 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hey Shopee</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Welcome To Your Doom! </title>
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
     <div class="container">
         <img src="./Logo.png" id="Logo" width="120" height="120">
-        <h1>Hey Shopee</h1>
-        <p class="description">Think before you buy! Here's your shopping stats:</p>
+        <h1>Welcome To Your Doom!</h1>
+        <p class="description">Think before you click! Here's your shopping stats:</p>
         <div class="stats-box">
             <p><strong>Websites Visited:</strong> <span id="stats">statsElement.textContent</span></p>
-            <p><strong>Time Spent:</strong> <span id="time">timeElement.textContent</span></p>
+            <p><strong>No. of Misdirects:</strong> <span id="misdir">misdirectsElement.textContent</span></p>
+            <p><strong>No. of Good Choices:</strong> <span id="good">goodElement.textContent</span></p>
+            <p><strong>No. of Interventions Needed:</strong> <span id="interv">intervElement.textContent</span></p>
+
         </div>
-        <div class="spacer" style="height: 20px;"> </div> 
         
         <button id="reset" >Reset</button>
     </div>

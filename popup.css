@@ -1,14 +1,23 @@
 body {
-    width: 300px; /* Expanding the size */
-    height: 250px;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #f8f9fa, #668DB8);
     text-align: center;
-    background-color: #f4f4f4;
-    padding: 15px;
-    border-radius: 10px;
+    padding: 0;
+    width: 250px;
+    height: 420px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    height: 90%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,8 +25,9 @@ body {
 }
 
 h1 {
-    font-size: 22px;
-    margin: 10px 0;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
 }
 
 .description {
@@ -26,19 +36,59 @@ h1 {
 }
 
 .stats-box {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 90%;
+    background: #B3D6FF;;
+    padding: 8px;
+    border-radius: 20px;
+    box-shadow: inset 0px 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
-}
-#reset {
-    background: white;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .stats-box p {
-    font-size: 16px;
+    font-size: 14px;
+    color: #333;
     margin: 5px 0;
+}
+
+#reset {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    margin-top: 12px;
+}
+
+#reset:hover {
+    background: #e84118;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 12px;
+    color: #666;
+    margin: 4px 0;
 }
