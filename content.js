@@ -75,6 +75,7 @@ async function fetchAIQuestion() {
 if (isShoppingSite()) {
   setTimeout(fetchAIQuestion, 2000); // Delay before showing popups
 
+  // 🔹 Use `setInterval` instead of multiple `setTimeout` calls
   setInterval(() => {
     fetchAIQuestion();
   }, Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000);  
