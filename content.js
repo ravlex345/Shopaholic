@@ -5,20 +5,83 @@ const badWebsites = ["https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://www
 
 function createModal(question) {
   const modal = document.createElement("div");
+  modal.id = "shopping-modal";
   modal.innerHTML = `
-    <div id="shopping-modal" style="
-        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-        background: white; padding: 20px; border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        z-index: 10000; text-align: center;">
-      <p style="font-size: 18px; margin-bottom: 20px;">${question}</p>
-      <button id="yes-btn" style="padding: 10px 20px; margin-right: 10px; background: green; color: white; border: none; border-radius: 5px; cursor: pointer;">Yes</button>
-      <button id="no-btn" style="padding: 10px 20px; background: red; color: white; border: none; border-radius: 5px; cursor: pointer;">No</button>
+    #shopping-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+      text-align: center;
+      width: 280px;
+      max-width: 90%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background:rgb(212, 230, 247);
+    }
+    #modal-logo {
+      width: 60px; 
+      height: 60px; 
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+      background: #f8f9fa;
+      border-radius: 6px;
+    }
+    #button-container {
+      display: flex;
+      gap: 12px;
+    }
+    #yes-btn, #no-btn {
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+    #yes-btn {
+      background: #28a745;
+      color: white;
+      border: none;
+    }
+    #no-btn {
+      background: #dc3545;
+      color: white;
+      border: none;
+    }
+  `;
+  modal.innerHTML = `
+    <style>${modal.innerHTML}</style>
+    <div id="shopping-modal">
+      <img id="modal-logo" alt="Shopping Cart of Doom Logo">
+      <h2>Shopping Cart of Doom</h2>
+      <p>${question}</p>
+      <div id="button-container">
+        <button id="yes-btn">Yes</button>
+        <button id="no-btn">No</button>
+      </div>
     </div>
   `;
+
   
   document.body.appendChild(modal);
-  
+  document.getElementById("modal-logo").src = chrome.runtime.getURL("Logo.png");
+
   chrome.storage.local.get(["interv"], (data) => {
     let interv = (data.interv || 0) + 1;
     chrome.storage.local.set({ interv }, () => {
@@ -89,7 +152,6 @@ async function fetchAIQuestion() {
 if (isShoppingSite()) {
   setTimeout(fetchAIQuestion, 2000); // Delay before showing popups
 
-  // 🔹 Use `setInterval` instead of multiple `setTimeout` calls
   setInterval(() => {
     fetchAIQuestion();
   }, Math.floor(Math.random() * (300000 - 120000 + 1)) + 120000);  
