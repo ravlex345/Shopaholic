@@ -18,10 +18,24 @@ function createModal(question) {
   `;
   
   document.body.appendChild(modal);
+  
+  chrome.storage.local.get(["interv"], (data) => {
+    let interv = (data.interv || 0) + 1;
+    chrome.storage.local.set({ interv }, () => {
+      console.log(`interv count updated: ${interv}`);
+    });
+  });
   const modalTimeout = setTimeout(() => {document.body.removeChild(modal);}, 120000);
 
   document.getElementById("yes-btn").addEventListener("click", () => {
     clearTimeout(modalTimeout);
+    chrome.storage.local.get(["good"], (data) => {
+      let good = (data.good || 0) + 1;
+      chrome.storage.local.set({ good }, () => {
+        console.log(`Good count updated: ${good}`);
+      });
+
+    });
     if (Math.random() < 0.8) {
       alert("Correct Answer!, Here's a treat");
       const randomGoodWebsite = goodWebsites[Math.floor(Math.random() * goodWebsites.length)];
@@ -39,7 +53,7 @@ function createModal(question) {
       const randomBadWebsite = badWebsites[Math.floor(Math.random() * badWebsites.length)];
       window.location.href = randomBadWebsite;
       
-      // 🔹 Ensure `misdirects` is updated safely
+      // Ensure `misdirects` is updated safely
       chrome.storage.local.get(["misdirects"], (data) => {
         let misdirects = (data.misdirects || 0) + 1;
         chrome.storage.local.set({ misdirects }, () => {
